@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Your Product
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+
+<div class="form-container">
+    <h3 class="md">Create Your Account</h3>
+    <div class="row m-2 p-2">
+        <form method="post" enctype="multipart/form-data" class="col">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.name(class ="form-control", placeholder=form.name.label.text) }}
+            </div>
+            <div class="mb-3">
+                {{ form.username(class ="form-control", placeholder=form.username.label.text) }}
+            </div>
+            <div class="mb-3">
+                {{ form.email(class ="form-control", placeholder=form.email.label.text) }}
+            </div>
+            <div class="mb-3">
+                {{ form.number(class ="form-control", placeholder=form.number.label.text) }}
+            </div>
+            <div class="mb-3">
+                {{ form.password(class ="form-control", placeholder=form.password.label.text) }}
+            </div>
+            <div class="mb-3">
+                {{ form.repeat_password(class ="form-control", placeholder=form.repeat_password.label.text) }}
+            </div>
+            <div class="mb-3">
+                {{ form.img.label }} {{ form.img }}
+            </div>
+            <br>
+            <div class="row mt-2">
+                {{ form.submit(class="btn btn-sigma") }}
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

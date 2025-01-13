@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+
+{% block body %}
+<div class="row-align-items-start">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                Name: {{ user["username"] }}
+            </div>
+             <div class="row">
+                Number: {{ user["number"] }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

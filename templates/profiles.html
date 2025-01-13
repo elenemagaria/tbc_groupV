@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="row g-4">
+        {% for user in users %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="static/images/{{ user['img'] }}" class="card-img-top" alt="User image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ user['name'] }}</h5>
+                        <p class="card-text">{{ user['number'] }}</p>
+                        <a href="/user_detail/{{ user['id'] }}" target="_blank" class="btn btn-warning">Contact</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
