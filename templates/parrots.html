@@ -2,96 +2,26 @@
 
 {% block body %}
 
-<hr>
+<link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
 <div class="row g-4">
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/99/ec/7c/99ec7c5ba5adea53fff04e633169d01a.jpg" class="card-img-top" alt="Dog 1">
-            <div class="card-body text-center">
-                <h5 class="card-title">parrot</h5>
-                <p class="card-text">200$</p>
-                <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
+    {% for product in products %}
+    <div class="col-md-4">
+        <div class="card">
+            <img src="static/images/{{ product['img'] }}" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">{{ product ['name'] }}</h5>
+                <p class="card-text">{{ product ['breed'] }}</p>
+                {% if role == "Admin" %}
+                <a href="/delete_product/{{ product['id'] }}" target="_blank" class="btn btn-danger">Delete
+                    Product</a>
+                <br>
+                {% endif %}
+                <br>
+                <a href="/product_detail/{{ product['id'] }}" target="_blank" class="btn btn-sigma">Contact</a>
 
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/10/a0/e2/10a0e2ac87ce5c23395cce5653d8a924.jpg" class="card-img-top" alt="Dog 2">
-            <div class="card-body text-center">
-                <h5 class="card-title">parrot</h5>
-                <p class="card-text">150$</p>
-                <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
             </div>
         </div>
     </div>
-
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/66/53/75/6653756b86d768552aa82299e8d2f2c4.jpg" class="card-img-top" alt="Dog 3">
-            <div class="card-body text-center">
-                <h5 class="card-title">parrot</h5>
-                <p class="card-text">500$</p>
-               <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/fd/7c/54/fd7c5468139418a9b33c64c2ba185170.jpg" class="card-img-top" alt="Dog 4">
-            <div class="card-body text-center">
-                <h5 class="card-title">parrot</h5>
-                <p class="card-text">200$</p>
-                <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-<div class="row g-4">
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/e0/32/75/e0327589c809f544c08ff14817b0976c.jpg" class="card-img-top" alt="Dog 1">
-            <div class="card-body text-center">
-                <h5 class="card-title">parrot</h5>
-                <p class="card-text">300$</p>
-              <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/d5/90/6a/d5906aaea71aaa932b8389b294c76df6.jpg" class="card-img-top" alt="Dog 2">
-            <div class="card-body text-center">
-                <h5 class="card-title">parrot</h5>
-                <p class="card-text">150$</p>
-                <a href="#" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/de/ce/5f/dece5f90e8378229895b178bd78bba96.jpg" class="card-img-top" alt="Dog 3">
-            <div class="card-body text-center">
-                <h5 class="card-title">parrot</h5>
-                <p class="card-text">200$</p>
-               <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/42/b5/0c/42b50c23749d57435c2fe6c001a03bb4.jpg" class="card-img-top" alt="Dog 4">
-            <div class="card-body text-center">
-                <h5 class="card-title">parrot</h5>
-                <p class="card-text">100$</p>
-                <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 {% endblock %}
