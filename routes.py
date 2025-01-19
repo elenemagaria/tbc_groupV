@@ -98,19 +98,19 @@ def create_user():
 
 @app.route("/dogs")
 def dogs():
-    return render_template("dogs.html")
+    return render_template("dogs.html",products = Product.query.filter_by(breed="dog").all())
 
 @app.route("/parrots")
 def parrots():
-    return render_template("parrots.html")
+    return render_template("parrots.html",products = Product.query.filter_by(breed="parrot").all())
 
 @app.route("/cats")
 def cats():
-    return render_template("cats.html")
+    return render_template("cats.html",products = Product.query.filter_by(breed="cat").all())
 
 @app.route("/hamsters")
 def hamsters():
-    return render_template("hamsters.html")
+    return render_template("hamsters.html",products = Product.query.filter_by(breed="hamster").all())
 
 
 @app.route("/about_us")
