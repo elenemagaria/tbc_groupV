@@ -2,96 +2,26 @@
 
 {% block body %}
 
-<hr>
+<link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
 <div class="row g-4">
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/8b/40/a2/8b40a2bb7309a82406d25215b5615f8b.jpg" class="card-img-top" alt="Dog 1">
-            <div class="card-body text-center">
-                <h5 class="card-title">hamster</h5>
-                <p class="card-text">200$</p>
-                <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
+    {% for product in products %}
+    <div class="col-md-4">
+        <div class="card">
+            <img src="static/images/{{ product['img'] }}" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">{{ product ['name'] }}</h5>
+                <p class="card-text">{{ product ['breed'] }}</p>
+                {% if role == "Admin" %}
+                <a href="/delete_product/{{ product['id'] }}" target="_blank" class="btn btn-danger">Delete
+                    Product</a>
+                <br>
+                {% endif %}
+                <br>
+                <a href="/product_detail/{{ product['id'] }}" target="_blank" class="btn btn-sigma">Contact</a>
 
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/83/b2/52/83b2523fcff717f653c160663ab2c4d2.jpg" class="card-img-top" alt="Dog 2">
-            <div class="card-body text-center">
-                <h5 class="card-title">hamster</h5>
-                <p class="card-text">150$</p>
-                <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
             </div>
         </div>
     </div>
-
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/46/b5/d6/46b5d610c871b475bf9e38a5c7a13055.jpg" class="card-img-top" alt="Dog 3">
-            <div class="card-body text-center">
-                <h5 class="card-title">hamster</h5>
-                <p class="card-text">500$</p>
-               <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/5a/27/96/5a279647da02adc7b41fced4eaa9cb64.jpg" class="card-img-top" alt="Dog 4">
-            <div class="card-body text-center">
-                <h5 class="card-title">hamster</h5>
-                <p class="card-text">200$</p>
-                <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-<div class="row g-4">
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/ce/e0/a9/cee0a943201a4ca0f04e7cbda6516c5a.jpg" class="card-img-top" alt="Dog 1">
-            <div class="card-body text-center">
-                <h5 class="card-title">hamster</h5>
-                <p class="card-text">300$</p>
-              <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/23/6a/07/236a07eaefd398cccace4dfc82ad1689.jpg" class="card-img-top" alt="Dog 2">
-            <div class="card-body text-center">
-                <h5 class="card-title">hamster</h5>
-                <p class="card-text">150$</p>
-                <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/c7/28/f1/c728f18519ec67e4831875894d300a48.jpg" class="card-img-top" alt="Dog 3">
-            <div class="card-body text-center">
-                <h5 class="card-title">hamster</h5>
-                <p class="card-text">200$</p>
-               <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow-lg rounded-3 overflow-hidden">
-            <img src="https://i.pinimg.com/736x/43/27/60/432760b8445d3001cbba4608f507d0dc.jpg" class="card-img-top" alt="Dog 4">
-            <div class="card-body text-center">
-                <h5 class="card-title">hamster</h5>
-                <p class="card-text">100$</p>
-                <a href="3" class="btn btn-lightblue rounded-pill">Details</a>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 {% endblock %}
