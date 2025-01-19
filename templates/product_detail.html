@@ -8,16 +8,15 @@ Product Page
 <style>
 
 
-/* Custom styles for product details */
+
 .card {
-    border-radius: 10px;  /* Rounded corners for cards */
+    border-radius: 10px; 
 }
 
 .card-img-top {
     max-height: 400px;
-    object-fit: cover;  /* Ensures the image fills the container without distortion */
-    border-radius: 10px 10px 0 0;  /* Round top corners for the image */
-}
+    object-fit: cover;  
+    border-radius: 10px 10px 0 0; 
 
 .card-body {
     padding: 20px;
@@ -29,7 +28,7 @@ h3.card-title {
 }
 
 h5.card-subtitle {
-    color: #6c757d;  /* Subtle color for breed name */
+    color: #6c757d;  
 }
 
 .btn-primary {
@@ -43,24 +42,24 @@ h5.card-subtitle {
     border-color: #0056b3;
 }
 
- /* Custom styles to center the image */
+
 .card-img-top {
-    max-width: 100%; /* Ensure the image does not overflow */
-    height: auto;    /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure the image fits within the container */
-    border-radius: 10px 10px 0 0; /* Rounded top corners for the image */
+    max-width: 100%; 
+    height: auto;    
+    object-fit: contain; 
+    border-radius: 10px 10px 0 0; 
 }
 </style>
 <div class="container mt-5">
     <div class="row g-4">
-        <!-- Product Image (Centered) -->
+       
         <div class="col-md-6 d-flex justify-content-center align-items-center">
             <div class="card shadow-sm w-100">
                 <img src="{{ url_for('static', filename='images/' + product['img']) }}" class="card-img-top" alt="{{ product['name'] }}">
             </div>
         </div>
 
-        <!-- Product Details -->
+      
         <div class="col-md-6">
             <div class="card shadow-sm">
                 <div class="card-body">
