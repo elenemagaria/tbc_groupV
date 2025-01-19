@@ -81,6 +81,7 @@ def create_user():
             img = image.filename
 
             new_user.create()
+            return redirect("/login")
         else:
             print("buuuuuuuuuuuuuu", form.errors)
 
